@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 public class InitializeDriverPagesAndUtils {
     private WebDriver webDriver;
 
-    private somePageTemplate somePageTemplate;
+    private HomeHeadersPage homeHeadersPage;
 
     private ExcelReader excelReader;
     //ActionExecutor and ExceptionHandling utilities objects are created and used within classes themselves
@@ -28,7 +28,7 @@ public class InitializeDriverPagesAndUtils {
     }
     public void initializeAllPagesAndUtils(ExtentTest currentTest, ExtentReportGenerator extentReportGenerator, Scenario scenario){
         //initializing page object classes
-        somePageTemplate = new somePageTemplate(webDriver, currentTest, extentReportGenerator, scenario);
+        homeHeadersPage = new HomeHeadersPage(webDriver, currentTest, extentReportGenerator, scenario);
 
         //initializes the excelReader
         excelReader = new ExcelReader(currentTest, extentReportGenerator);
@@ -45,8 +45,8 @@ public class InitializeDriverPagesAndUtils {
         return webDriver;
     }
     //getPages
-    public somePageTemplate getSomePageTemplate() {
-        return somePageTemplate;
+    public HomeHeadersPage getHomeHeadersPage() {
+        return homeHeadersPage;
     }
 
     //getUtilities

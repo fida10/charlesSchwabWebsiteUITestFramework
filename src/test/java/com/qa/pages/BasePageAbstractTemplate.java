@@ -14,7 +14,7 @@ import org.testng.Assert;
 //TEMPLATE PAGE, NOT AN ACTUAL PAGE OBJECT CLASS. This is a base class.
 // All page classes will inherit the below abstract class and implement the abstract methods
 
-public abstract class somePageTemplate {
+public abstract class BasePageAbstractTemplate {
 	protected final WebDriver driver;
 	protected final ExtentReportGenerator extentReportGenerator;
 	protected final ExtentTest currentTest;
@@ -23,7 +23,7 @@ public abstract class somePageTemplate {
 	protected final ActionExecutor actionExecutor;
 
 
-	public somePageTemplate(WebDriver driver, ExtentTest currentTestFromInitDrPgsAndUtilsClass, ExtentReportGenerator extentReportGeneratorFromInitDrPgsAndUtilsClass, Scenario scenario){
+	public BasePageAbstractTemplate(WebDriver driver, ExtentTest currentTestFromInitDrPgsAndUtilsClass, ExtentReportGenerator extentReportGeneratorFromInitDrPgsAndUtilsClass, Scenario scenario){
 		this.driver = driver; //sets the driver object on this class to the same as the driver option passed into params when initializing this class.
 		PageFactory.initElements(driver, this); //initializes these elements
 		currentTest = currentTestFromInitDrPgsAndUtilsClass;
@@ -35,10 +35,10 @@ public abstract class somePageTemplate {
 	}
 
 	//reminders to implement the getter method
-	public abstract WebElement getSampleElement();
+	public abstract WebElement getPageValidationElement();
 
-	//reminders to implement the setter method
-	public abstract String getSampleElementXPath();
+	//reminders to implement the getter method
+	public abstract String getPageValidationElementXPath();
 
 	//validation methods begin
 	public abstract void validatePageIsOpen();
