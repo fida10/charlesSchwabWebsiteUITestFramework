@@ -11,20 +11,17 @@ import org.openqa.selenium.support.PageFactory;
 import io.cucumber.java.Scenario;
 import org.testng.Assert;
 
-//TEMPLATE PAGE, NOT AN ACTUAL PAGE OBJECT CLASS. JUST A SAMPLE
+//TEMPLATE PAGE, NOT AN ACTUAL PAGE OBJECT CLASS. This is a base class.
+// All page classes will inherit the below abstract class and implement the abstract methods
 
-public class somePageTemplate {
-	private final WebDriver driver;
-	private final ExtentReportGenerator extentReportGenerator;
-	private final ExtentTest currentTest;
-	private final Scenario scenario;
+public abstract class somePageTemplate {
+	protected final WebDriver driver;
+	protected final ExtentReportGenerator extentReportGenerator;
+	protected final ExtentTest currentTest;
+	protected final Scenario scenario;
+	protected final ExceptionHandling exceptionHandling;
+	protected final ActionExecutor actionExecutor;
 
-	private final ExceptionHandling exceptionHandling;
-	private final ActionExecutor actionExecutor;
-
-	@FindBy(xpath = "//")
-	WebElement sampleElement;
-	String sampleElementXPath = "//";
 
 	public somePageTemplate(WebDriver driver, ExtentTest currentTestFromInitDrPgsAndUtilsClass, ExtentReportGenerator extentReportGeneratorFromInitDrPgsAndUtilsClass, Scenario scenario){
 		this.driver = driver; //sets the driver object on this class to the same as the driver option passed into params when initializing this class.
@@ -37,18 +34,14 @@ public class somePageTemplate {
 		actionExecutor = new ActionExecutor(driver, currentTestFromInitDrPgsAndUtilsClass, extentReportGeneratorFromInitDrPgsAndUtilsClass);
 	}
 
-	public WebElement getSampleElement() {
-		return sampleElement;
-	}
+	//reminders to implement the getter method
+	public abstract WebElement getSampleElement();
 
-	public String getSampleElementXPath() {
-		return sampleElementXPath;
-	}
+	//reminders to implement the setter method
+	public abstract String getSampleElementXPath();
 
 	//validation methods begin
-	public void validatePageIsOpen(){
-		Assert.assertNotNull(exceptionHandling.combinedStaleAndIsElementDisplayedHandling(driver, sampleElementXPath, 0));
-	}
+	public abstract void validatePageIsOpen();
 	//validation methods end
 
 	//flows related to this page begin
