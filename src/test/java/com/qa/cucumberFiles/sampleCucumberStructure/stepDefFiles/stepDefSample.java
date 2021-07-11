@@ -15,6 +15,7 @@ public class stepDefSample {
 	@Given("A step with param {string}")
 	public void aStepWithParam(String param){
 		//steps
+
 	}
 
 	@When("A step happens with param {string}")
