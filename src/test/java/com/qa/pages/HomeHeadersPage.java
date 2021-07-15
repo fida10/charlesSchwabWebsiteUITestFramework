@@ -133,6 +133,17 @@ public class HomeHeadersPage extends BasePageAbstractTemplate {
         return openAnAccountXPath;
     }
     public void validatePageIsOpen(){
+        System.out.println("USER IS VALIDATING HOME HEADER PAGE");
+        extentReportGenerator.addInfoMessage(currentTest, "USER IS VALIDATING HOME HEADER PAGE");
         Assert.assertNotNull(exceptionHandling.combinedStaleAndIsElementDisplayedHandling(driver, whatWeOfferXPath, 0));
+        System.out.println("USER HAS VALIDATED HOME HEADER PAGE");
+        extentReportGenerator.addInfoMessage(currentTest, "USER HAS VALIDATED HOME HEADER PAGE");
+    }
+    public void hoverOverHeaderOptionsWithPopup(){
+        actions
+                .moveToElement(whatWeOffer)
+
+                .build()
+                .perform();
     }
 }
