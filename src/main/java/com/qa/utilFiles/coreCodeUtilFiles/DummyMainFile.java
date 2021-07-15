@@ -2,11 +2,7 @@ package com.qa.utilFiles.coreCodeUtilFiles;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.qa.coreFrameworkFiles.Initializer;
-import com.qa.utilFiles.coreCodeUtilFiles.restAPICommands.BrowserStackAppCommands;
-import com.qa.utilFiles.coreCodeUtilFiles.restAPICommands.EMTAdminCommands;
-import com.qa.utilFiles.coreCodeUtilFiles.restAPICommands.MicrosoftAppCenterCommands;
 import com.qa.utilFiles.coreCodeUtilFiles.restAPICommands.TestRailsIntegration;
-import com.qa.utilFiles.coreCodeUtilFiles.restAPICommands.capi.CAPIRegistrationIDUpload;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import javax.swing.plaf.IconUIResource;
