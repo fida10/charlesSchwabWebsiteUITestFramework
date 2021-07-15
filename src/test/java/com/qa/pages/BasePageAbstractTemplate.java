@@ -6,10 +6,9 @@ import com.qa.appUtilFiles.ExceptionHandling;
 import com.qa.utilFiles.coreCodeUtilFiles.ExtentReportGenerator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import io.cucumber.java.Scenario;
-import org.testng.Assert;
 
 //TEMPLATE PAGE, NOT AN ACTUAL PAGE OBJECT CLASS. This is a base class.
 // All page classes will inherit the below abstract class and implement the abstract methods
@@ -19,7 +18,9 @@ public abstract class BasePageAbstractTemplate {
 	protected final ExtentReportGenerator extentReportGenerator;
 	protected final ExtentTest currentTest;
 	protected final Scenario scenario;
+
 	protected final ExceptionHandling exceptionHandling;
+	protected final Actions actions;
 	protected final ActionExecutor actionExecutor;
 
 
@@ -31,6 +32,7 @@ public abstract class BasePageAbstractTemplate {
 		this.scenario = scenario;
 
 		exceptionHandling = new ExceptionHandling(currentTestFromInitDrPgsAndUtilsClass, extentReportGeneratorFromInitDrPgsAndUtilsClass);
+		actions = new Actions(driver);
 		actionExecutor = new ActionExecutor(driver, currentTestFromInitDrPgsAndUtilsClass, extentReportGeneratorFromInitDrPgsAndUtilsClass);
 	}
 
